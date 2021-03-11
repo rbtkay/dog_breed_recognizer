@@ -4,6 +4,5 @@
 *.gif
 /venv
 /env
-*.h5
 /venv
 __pycache__
