@@ -13,6 +13,9 @@ body {
 
 .bg-brown {
     background-color: var(--brown) !important;
+}
+
+.btn.bg-brown {
     border-color: var(--brown) !important;
 }
 
@@ -22,8 +25,18 @@ body {
     border-color: var(--red);
 }
 
-.alert.success-danger {
+.alert.alert-success {
     color: var(--green);
     background-color: transparent;
     border-color: var(--green);
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.render-image {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 5px;
 }

@@ -8,20 +8,21 @@ function init(e) {
 
 function displayImg(e) {
 	const { files } = e.target;
-	if (files.length > 0) {
+	if (files.length > 1) {
 		console.error("Vous essayez d'uploder plus d'une image");
 		return;
 	}
-	if (files[0]) {
+	const file = files[0];
+	if (file) {
 		if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
 			console.error('Le format du fichier est incorrecte.');
 			return;
 		}
 		const place = document.getElementById('img-place');
 		place.innerHTML = `<img
-            src="${URL.createObjectURL(files[0])}"
+            src="${URL.createObjectURL(file)}"
             alt="L'image que vous avez téléchargée"
-            className="render-image"
+            class="render-image img-fluid mt-3"
         />`;
 	}
 }

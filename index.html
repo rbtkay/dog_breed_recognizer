@@ -21,31 +21,38 @@
 	<body>
 		<div class="container my-3">
 			<h2>
-				<i class="fas fa-dog text-brown"></i> Identificateur d'espèce de chien
+				<i class="fas fa-dog text-brown"></i>
+				Identificateur d'espèce de chien
 				<i class="fas fa-paw text-brown"></i>
 			</h2>
 			<p>Veuillez importer une image pour procéder à la reconnaissance.</p>
 			<form method="post" enctype="multipart/form-data">
-				<div className="file-field">
-					<div id="img-place"></div>
+				<div class="form-group">
+					<label for="dog_picture" class="btn btn-dark bg-brown mb-0">
+						<i class="fas fa-download"></i>
+						Déposer une image de chien
+						<i class="fas fa-dog"></i>
+					</label>
 					<input
 						id="dog_picture"
 						type="file"
 						name="dog_picture"
 						accept="image/png, image/jpeg, image/bmp, image/gif"
 						required
-						class="mb-3"
 					/>
+					<div id="img-place"></div>
 				</div>
 				{% if error %}
-				    <p class="alert alert-danger" role="alert">{{ error }}</p>
+				<p class="alert alert-danger" role="alert">{{ error }}</p>
 				{% endif %}
-				<button type="submit" class="btn btn-dark bg-brown d-block mb-3">
-					<i class="fas fa-cogs"></i> Tester
-				</button>
+				<div class="mb-3">
+					<button type="submit" class="btn btn-success">
+						<i class="fas fa-play"></i> Tester
+					</button>
+				</div>
 			</form>
 			{% if breed %}
-			    <p class="alert alert-success" role="alert">Ce chien est un {{ breed }}</p>
+			<p class="alert alert-success" role="alert">Ce chien est un {{ breed }}</p>
 			{% endif %}
 		</div>
 
