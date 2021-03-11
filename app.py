@@ -5,7 +5,7 @@ import numpy as np
 import os
 from PIL import Image
 from tensorflow import keras 
-from keras.models import load_model
+from tensorflow.keras.models import load_model
 from tensorflow.compat.v1 import ConfigProto
 from tensorflow.compat.v1 import InteractiveSession
 

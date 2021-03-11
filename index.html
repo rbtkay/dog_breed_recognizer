@@ -44,6 +44,9 @@
 					<i class="fas fa-cogs"></i> Tester
 				</button>
 			</form>
+			{% if breed %}
+			    <p class="alert alert-success" role="alert">Ce chien est un {{ breed }}</p>
+			{% endif %}
 		</div>
 
 		<script
