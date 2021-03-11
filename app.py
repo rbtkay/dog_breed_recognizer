@@ -24,7 +24,7 @@ def home():
 def recognize_image():
     data = request.files['dog_picture']
     if not data:
-        return render_template("index.html", error="Une image est requise.")
+        return jsonify({'error': "Une image est requise."})
     
     config = ConfigProto()
     config.gpu_options.allow_growth = True
@@ -37,12 +37,12 @@ def recognize_image():
 
     model = load_model("ccn_model.h5")
     predictions = model.predict((np.expand_dims(current_image, 0)))
-    # os.remove(filename)
+    os.remove(filename)
 
     breed = breeds[np.argmax(predictions[0])].split('-')
     breed.pop(0)
     breed = ' '.join(breed).replace('_',' ')
-    return render_template("index.html", breed=breed)
+    return jsonify({'breed': breed})
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -31,12 +31,28 @@ body {
     border-color: var(--green);
 }
 
+.alert.alert-secondary {
+    color: var(--secondary);
+    background-color: transparent;
+    border-color: var(--secondary);
+}
+
 input[type="file"] {
-    display: none;
+    display: block;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    margin-left: 120px;
 }
 
 .render-image {
     max-width: 300px;
     max-height: 300px;
     border-radius: 5px;
+}
+
+.btn .spinner-border {
+    height: 1.33rem;
+    width: 1.33rem;
 }
