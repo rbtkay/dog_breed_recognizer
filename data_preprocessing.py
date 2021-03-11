@@ -2,7 +2,7 @@ import os
 import shutil
 
 base_dir = 'images'
-test_dir = 'test'
+test_dir = 'validation'
 train_dir = 'train'
 
 if(os.path.exists(train_dir)):
