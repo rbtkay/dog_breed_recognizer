@@ -1,2 +1,8 @@
 *.jpg
-/venvenv
+*.jpeg
+*.png
+*.gif
+/venv
+/env
+*.h5
+/venv

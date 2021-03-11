@@ -41,9 +41,13 @@ L'objectif du projet est de définir la race du chien sur une image importée pa
     jupyter notebook
 
 ## Visualisation du notebook sur colab
-Exécuter le [Colab](https://colab.research.google.com/drive/1pkAMho_nuQvx7bFl7jUDOF55PbJdGXsX?usp=sharing).
+Exécuter le [CNN Colab](https://colab.research.google.com/drive/1pkAMho_nuQvx7bFl7jUDOF55PbJdGXsX?usp=sharing).
+Exécuter le [Transfer learning Colab](https://colab.research.google.com/drive/15SX2p6iwSYDh1dvYXhaqrMNbl3OjeJc0?usp=sharing).
 
 ## Entrainer l'IA depuis un script Python
 
     python ./training.py
 
+## Lancer l'API python via flask
+
+    flask run
