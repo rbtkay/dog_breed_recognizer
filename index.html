@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-    crossorigin="anonymous"
-    />
-    <link
-        rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-        crossorigin="anonymous"
-    />
-    <title>Dog breed recognizer</title>
-</head>
-<body>
-    <div class="container my-3">
-        <h2>Dog breed recognizer</h2>
-        <p>Veuillez importer une image pour procéder à la reconnaissance.</p>
-        <form method="post" action="recognize_picture" enctype="multipart/form-data">
-            <input type="file" name="dog_picture" accept="image/png, image/jpeg, image/bmp, image/gif"/>
-            <input type="submit" class="btn btn-info d-block my-3"/>
-        </form>
-    </div>
-</body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Identificateur d'espèce de chien</title>
+		<link
+			rel="stylesheet"
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+			integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+			integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+	</head>
+	<body>
+		<div class="container my-3">
+			<h2>
+				<i class="fas fa-dog text-brown"></i> Identificateur d'espèce de chien
+				<i class="fas fa-paw text-brown"></i>
+			</h2>
+			<p>Veuillez importer une image pour procéder à la reconnaissance.</p>
+			<form method="post" enctype="multipart/form-data">
+				<div className="file-field">
+					<div id="img-place"></div>
+					<input
+						id="dog_picture"
+						type="file"
+						name="dog_picture"
+						accept="image/png, image/jpeg, image/bmp, image/gif"
+						required
+						class="mb-3"
+					/>
+				</div>
+				{% if error %}
+				    <p class="alert alert-danger" role="alert">{{ error }}</p>
+				{% endif %}
+				<button type="submit" class="btn btn-dark bg-brown d-block mb-3">
+					<i class="fas fa-cogs"></i> Tester
+				</button>
+			</form>
+		</div>
+
+		<script
+			src="{{ url_for('static', filename='script.js') }}"
+			charset="utf-8"
+		></script>
+	</body>
 </html>

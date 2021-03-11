@@ -1,0 +1,29 @@
+:root {
+    --brown: #a5673f;
+}
+
+body {
+    background-color: #202225;
+    color: white;
+}
+
+.text-brown {
+    color: var(--brown) !important;
+}
+
+.bg-brown {
+    background-color: var(--brown) !important;
+    border-color: var(--brown) !important;
+}
+
+.alert.alert-danger {
+    color: var(--red);
+    background-color: transparent;
+    border-color: var(--red);
+}
+
+.alert.success-danger {
+    color: var(--green);
+    background-color: transparent;
+    border-color: var(--green);
+}
