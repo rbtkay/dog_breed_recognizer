@@ -46,7 +46,6 @@ def recognize_image():
     predictions = model.predict((np.expand_dims(current_image, 0)))
     os.remove(filename)
 
-    breeds.sort()
     breed = breeds[np.argmax(predictions[0])].split('-')
     breed.pop(0)
     breed = ' '.join(breed).replace('_',' ')

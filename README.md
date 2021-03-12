@@ -48,6 +48,9 @@ https://drive.google.com/file/d/1Du7Q_D40fHRlxI9hQhX8hLIsScbcSrHP/view?usp=shari
 
 Pour que ça fonctionne, il faut aussi modifier le nom du `MODEL_FILE` dans `app.py` et passer le `target_size` ligne 43 de `(224, 224)` à `(150, 150)`
 
+> Si un des liens est mort, récupérer ces fichier depuis ce dossier :<br/>
+https://drive.google.com/drive/folders/1JBdPfFlz49wBtjGHuWvvL6FdPe2lchFa?usp=sharing
+
 ### Lancer l'API python via flask
 
     flask run
