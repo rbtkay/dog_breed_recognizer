@@ -2,6 +2,7 @@
 *.jpeg
 *.png
 *.gif
+*.h5
 /venv
 /env
 /venv

@@ -9,17 +9,19 @@ function init(e) {
 }
 
 function displayImg(e) {
-	const { files } = e.target;
-	if (files.length > 1) {
-		console.error("Vous essayez d'uploder plus d'une image");
-		return;
-	}
-	const file = files[0];
+	const messagesPlace = document.getElementById('result-page');
+
+	const file = e.target.files[0];
 	if (file) {
 		if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
-			console.error('Le format du fichier est incorrecte.');
+			messagesPlace.innerHTML = `<p class="alert alert-danger" role="alert">
+				Le format du fichier est incorrecte.
+			</p>`;
 			return;
 		}
+		// Clear messages
+		messagesPlace.innerHTML = '';
+
 		const imgPlace = document.getElementById('img-place');
 		imgPlace.innerHTML = `<img
             src="${URL.createObjectURL(file)}"
@@ -42,11 +44,14 @@ function manageResult(res) {
 		messagesPlace.innerHTML = `<p class="alert alert-secondary" role="alert">Aucun resultat.</p>`;
 	}
 
+	// Stop loader
 	actionIcon = document.getElementById('action-icon');
 	loader = document.getElementById('loader');
 	actionIcon.classList.remove('d-none');
 	loader.classList.add('d-none');
 }
+
+function clearMessages() {}
 
 function postImg(e) {
 	e.preventDefault();
@@ -54,11 +59,11 @@ function postImg(e) {
 	const formData = new FormData(e.target);
 	post('/', formData, manageResult);
 
-	// Remove messages
+	// Clear messages
 	const messagesPlace = document.getElementById('result-page');
 	messagesPlace.innerHTML = '';
 
-	// Loader
+	// Start loader
 	actionIcon = document.getElementById('action-icon');
 	loader = document.getElementById('loader');
 	actionIcon.classList.add('d-none');
@@ -72,5 +77,9 @@ function post(url, body, callback) {
 	})
 		.then(res => res.json())
 		.then(callback)
-		.catch(e => console.log(e));
+		.catch(error => {
+			if (error.message) error = error.message;
+			console.error(error);
+			callback({ error });
+		});
 }
